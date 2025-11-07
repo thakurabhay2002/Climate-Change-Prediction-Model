@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClimateXplore Predictions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+     /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364);*/
+     background: linear-gradient(to right, #0b1120, #0a0a0a, #070131);
+      color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Optional glowing overlay effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 20%, rgba(0, 212, 255, 0.07), transparent);
+      z-index: 0;
+    }
+
+    canvas#stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      z-index: 1;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #00d4ff;
+      color: #f4f7f8;
+      text-shadow: 0 0 10px #00d4ff;
+    }
+
+    .intro {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 800px;
+      font-size: 1.2rem;
+      color: #cfd8dc;
+      z-index: 1;
+      position: relative;
+    }
+
+    .card-container, .gas-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background-color: #1a1a2e !important;
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      width: 280px;
+      height: 230px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3), 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.7), 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #f4f7f8;
+      text-shadow: 0 0 8px #00d4ff;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #000;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background 0.3s, box-shadow 0.3s;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+
+    .card a:hover {
+      background-color: #0056b3;
+      box-shadow: 0 0 15px rgba(0,191,255,0.5);
+    }
+
+    .gas-cards {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: auto;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: #90a4ae;
+      font-size: 0.9rem;
+      z-index: 1;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Include Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">🌎 ClimateXplorer</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5500/Climate_Change_Prediction-main/HOME/home.html#hero">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5006/">Dashboards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Include Bootstrap JS (for mobile collapse) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <canvas id="stars"></canvas>
+
+  <header>
+    <h1>ClimateXplorer Predictions</h1>
+  </header>
+
+  <div class="intro">
+    Navigate our suite of advanced climate prediction models powered by Machine Learning. Choose from global trends, country-specific data, or atmospheric gas forecasts.
+  </div>
+
+  <div class="card-container" id="main-cards">
+    <div class="card">
+      <h2>Country-wise Temperature</h2>
+      <a href="http://127.0.0.1:5005/">Go to Form</a>
+    </div>
+    <div class="card">
+      <h2>Global Avg. Temperature</h2>
+      <a href="http://127.0.0.1:5001/">Go to Form</a>
+    </div>
+    <div class="card" id="gases-card">
+      <h2>Gases Prediction</h2>
+      <a href="javascript:void(0)" id="show-gases">View Gases Prediction</a>
+    </div>
+  </div>
+
+  <div class="gas-cards" id="gas-cards">
+    <div class="card">
+      <h2>CO₂ Gas Prediction</h2>
+      <a href="http://127.0.0.1:5500/Trial/templates/CO2_Prediction.html">Go to Form</a>
+    </div>
+    <div class="card">
+      <h2>CO Gas Prediction</h2>
+      <a href="http://127.0.0.1:5500/Trial/templates/CO_Prediction.html">Go to Form</a>
+    </div>
+    <div class="card">
+      <h2>O₃ Gas Prediction</h2>
+      <a href="http://127.0.0.1:5500/Trial/templates/O3_Prediction.html">Go to Form</a>
+    </div>
+    <div class="card">
+      <h2>NO₂ Gas Prediction</h2>
+      <a href="http://127.0.0.1:5500/Trial/templates/NO2_Prediction.html">Go to Form</a>
+    </div>
+    <div class="card">
+      <h2>SO₂ Gas Prediction</h2>
+      <a href="http://127.0.0.1:5500/Trial/templates/SO2_prediction.html">Go to Form</a>
+    </div>
+  </div>
+
+  <footer>
+    ClimateXplore 
+  </footer>
+
+  <script>
+    // Star animation background
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const numStars = 150;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < numStars; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        speed: Math.random() * 0.3 + 0.1,
+        alpha: Math.random()
+      });
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = rgba(255, 255, 255, $(star,alpha));
+        ctx.fill();
+
+        // Move star downward
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+
+        // Twinkle
+        star.alpha += (Math.random() - 0.5) * 0.05;
+        star.alpha = Math.max(0.2, Math.min(star.alpha, 1));
+      }
+
+      requestAnimationFrame(animateStars);
+    }
+
+    animateStars();
+
+    // Card toggle interaction
+    document.getElementById("show-gases").addEventListener("click", function () {
+      document.getElementById("gas-cards").style.display = "flex";//show gas card
+      document.getElementById("main-cards").style.display = "none";//hide main card
+    });
+  </script>
+
+</body>
+</html>

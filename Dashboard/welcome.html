@@ -1,0 +1,128 @@
+Certainly! Below is an updated version of your welcome page that includes a more relevant background image related to climate change and an animated cloud effect in the background. For the animated effect, we'll use a simple CSS animation to simulate moving clouds.
+
+### Updated HTML Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Climate Intelligence Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #141e30, #243b55);
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h3 {
+            font-weight: 300;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            animation: slideIn 2s ease-in-out;
+        }
+
+        .enter-btn {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 1.5s infinite;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00c6ff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDEwfHxjbG91ZHN8ZW58MHx8fHwxNjg0MjY0NjY0&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://media.giphy.com/media/3o7aD2sa1g0g0g0g0g/giphy.gif') repeat-x;
+            animation: moveClouds 30s linear infinite;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        @keyframes moveClouds {
+            from { background-position: 0; }
+            to { background-position: 100%; }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="clouds"></div>
+    <div class="overlay"></div>
+    <h1>🌎 Climate Intelligence Hub</h1>
+    <h3>Harnessing Machine Learning to Model Climate Change</h3>
+    <a class="enter-btn" href="http://127.0.0.1:8060">🚀 Enter Portal</a>
+   

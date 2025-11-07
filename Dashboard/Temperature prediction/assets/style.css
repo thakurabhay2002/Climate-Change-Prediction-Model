@@ -1,0 +1,92 @@
+/* --- General Styles --- */
+body {
+   /* background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80');*/
+
+   background-image: url('Background.jpg');
+  
+
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Header --- */
+h1, h2, h3, h4 {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* --- Graphs --- */
+.graph-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Dropdowns, Inputs --- */
+.Select-control, .dash-dropdown, .dash-input, .dash-slider {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    color: #333333 !important;
+    border-radius: 10px !important;
+    padding: 10px;
+}
+
+/* --- Buttons --- */
+button, .Button {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .Button:hover {
+    background-color: #2980b9;
+    cursor: pointer;
+}
+
+/* --- Loading Spinner Custom --- */
+._dash-loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    z-index: 9999;
+}
+
+._dash-loading::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db; /* spinner color */
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    color: #cccccc;
+    font-size: 12px;
+    padding: 10px;
+    margin-top: 50px;
+}

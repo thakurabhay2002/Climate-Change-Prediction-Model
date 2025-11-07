@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Xplorer | Major Project</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+
+</head>
+
+<body>
+
+    <div id="main-content">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Background Stars -->
+    <canvas id="stars"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">🌎 Climate Xplorer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#live-dashboard">Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="d-flex justify-content-center align-items-center text-center">
+        <div class="hero-content glass-card p-5 shadow-lg">
+            <h1 class="display-3 fw-bold text-glow mb-3">Machine Learning for Climate Change</h1>
+            <p class="lead text-light mb-4">Predicting Future Climate Scenarios Using ML Models</p>
+            <!--<a href="http://127.0.0.1:8060" class="btn btn-primary btn-lg glowing-btn">🚀 Explore Dashboards</a> -->
+            <!--<a id="exploreBtn" data-href="http://127.0.0.1:8060" class="btn btn-primary btn-lg glowing-btn">🚀 Explore Dashboards</a>
+            <a href="your-prediction-page.html" class="btn btn-secondary btn-lg glowing-btn">🚀 Make Predictions</a>  <--New Button -->
+
+            <div class="btn-container">
+                <a href="http://127.0.0.1:8060" class="btn glowing-btn">
+                    🚀 Explore Dashboards
+                </a>
+                <a href="http://127.0.0.1:5006/" class="btn glowing-btn">
+                    🚀 Make Predictions 
+                </a>
+            </div>
+            
+
+        </div>
+    </section>
+
+   <!-- Live Climate Dashboard Section -->
+<section id="live-dashboard" class="section text-white text-center bg-dark py-5">
+    <div class="container">
+        <h2 class="display-5 mb-4">🌍 Live Climate Dashboard</h2>
+        <p class="lead mb-5">Stay updated with real-time environmental metrics</p>
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Temperature -->
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <h5>Temperature (<span id="city-label">--</span>)</h5>
+                    <img id="weather-icon" src="" alt="Weather Icon" style="height: 50px;">
+                    <p id="temp" class="display-6 fw-bold">-- °C</p>
+                    <p id="weather-desc">--</p>
+                </div>
+            </div>
+      
+            <!-- PM2.5 -->
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <h5>PM2.5 (Air Quality)</h5>
+                    <p id="pm25" class="display-6 fw-bold">-- µg/m³</p>
+                </div>
+            </div>
+      
+            <!-- PM10 -->
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <h5>PM10 (Air Quality)</h5>
+                    <p id="pm10" class="display-6 fw-bold">-- µg/m³</p>
+                    <!-- Add AQI for PM10 -->
+                    <p id="pm10-aqi" class="text-warning">AQI: --</p>
+                </div>
+            </div>
+
+            <!-- Humidity -->
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <h5>Humidity</h5>
+                    <p id="humidity" class="display-6 fw-bold">-- %</p>
+                    <p id="feels-like">Feels Like: -- °C</p>
+                </div>
+            </div>
+
+            <!-- Precipitation Levels -->
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <h5>Precipitation Levels</h5>
+                    <p id="precipitation" class="display-6 fw-bold">-- mm</p>
+                </div>
+            </div>
+
+            <!-- Climate Tip -->
+            <div class="col-md-3">
+                <div class="glass-card p-4 text-start">
+                    <h5>🌱 Climate Tip</h5>
+                    <p id="climate-tip" class="small mb-0">Loading...</p>
+                </div>
+            </div>
+
+            <!-- Temperature Trend Graph Section -->
+            <div class="glass-card p-4 mt-4">
+                <h5 class="text-center mb-3">🌡️ Temperature Trend (Next 12 Hours)</h5>
+               <canvas id="tempTrendChart" width="100%" height="60"></canvas>
+               
+            </div>
+              
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-dark text-white text-center">
+        <div class="container">
+            <h2 class="display-4 mb-4"> Understanding Climate Change</h2>
+            <p class="lead">Climate change is reshaping our planet — altering temperatures, rainfall, wind patterns, and ecosystems across the globe. Fueled by human activity, these shifts pose serious challenges to life as we know it.
+                🚀 ClimateXplorer taps into the power of machine learning to transform complex climate data into clear insights. Dive into trends, visualize predictions, and explore how technology can empower smarter, data-driven climate action.</p>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+<section id="articles" class="section bg-secondary text-white text-center">
+    <div class="container">
+        <h2 class="display-4 mb-5">Latest Articles</h2>
+        <div class="row g-4" id="articles-container">
+            <!-- Article Cards will be inserted dynamically here -->
+        </div>
+    </div>
+</section>
+
+    
+ 
+
+    <!-- Footer Section -->
+    <footer id="footer" class="bg-dark text-white py-4 text-center">
+        <p class="mb-0">2025 Climate Xplorer.<a href="#" class="text-decoration-underline text-white"></a></p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">↑</button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="stars.js"></script>
+
+    <script>
+        document.getElementById("exploreBtn").addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetURL = this.getAttribute("data-href");
+            const mainContent = document.getElementById("main-content");
+        
+            // Add animation class
+            mainContent.classList.add("fade-slide-out");
+        
+            // Wait for the animation to finish before redirecting
+            setTimeout(function () {
+                window.location.href = targetURL;
+            }, 800); // Match this to the CSS animation duration
+        });
+        </script>
+        
+    
+</div>
+
+
+</body>
+
+</html>

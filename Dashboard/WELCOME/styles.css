@@ -1,0 +1,90 @@
+/* Basic Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    /*background: radial-gradient(circle at center, #141e30, #243b55); /* Background gradient */
+    background: linear-gradient(135deg, #0b1120 0%, #0a0a0a 50%, #070131 100%);
+}
+
+/* Canvas for Stars */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Center Content */
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Titles */
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+}
+
+/* Description Paragraph */
+p.lead {
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+/* Button */
+.gradient-btn {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    border: none;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gradient-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00c6ff;
+}
+
+/* Learn More Button */
+.btn-outline-light {
+    border: 1px solid white;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #141e30;
+    transition: all 0.3s ease;
+}
+
+.fade-container.fade-slide {
+    animation: fadeSlide 0.7s ease forwards;
+}
+
+@keyframes fadeSlide {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}

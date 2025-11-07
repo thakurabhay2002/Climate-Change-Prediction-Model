@@ -1,0 +1,259 @@
+/* Background canvas */
+
+#star-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -1;
+    background-color: transparent;
+}
+
+
+/* Base body styles */
+body {
+    /*background-color: #0a0a0a; /* Deep black for the body */
+    background: linear-gradient(to right, #0b1120, #0a0a0a, #070131);
+    color: #f0f0f0;
+    font-family: 'Roboto', sans-serif; /* Modern font family */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Fade-in animation */
+.fade-in {
+    animation: fadeIn ease 1.5s;
+}
+@keyframes fadeIn {
+    0% {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+/* Welcome Page */
+.welcome-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+}
+.welcome-title {
+    font-size: 4rem; /* Increased size for a bolder look */
+    color: #7FDBFF;
+    text-shadow: 0 0 15px #7FDBFF, 0 0 30px #7FDBFF; /* Added glow effect */
+    font-family: 'Poppins', sans-serif; /* Bold and modern font */
+    margin-bottom: 15px;
+}
+.welcome-subtitle {
+    font-size: 1.6rem; /* Slightly larger for readability */
+    color: #d0d0d0;
+    font-weight: 300; /* Light weight for better contrast */
+    margin-bottom: 25px;
+}
+.enter-button {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    box-shadow: 0 0 18px #17a2b8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+    padding: 15px 35px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.enter-button:hover {
+    transform: scale(1.05);
+    background-color: #138496;
+    box-shadow: 0 0 22px #138496;
+}
+
+/* Navigation Page */
+.navigation-container {
+    padding: 50px 10%;
+    text-align: center;
+    margin-top: 40px;
+}
+.navigation-title {
+    color: #fafbfb;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Dashboard Cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+.dashboard-card {
+    width: 280px;
+    background-color: #1a1a2e;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,191,255,0.3); /* Softer and deeper glow */
+    transition: transform 0.3s ease;
+    color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+}
+.dashboard-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0,191,255,0.5);
+}
+.card-title {
+    color: #f4f7f8;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.card-text {
+    color: #cccccc;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+.card-btn {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+.card-btn:hover {
+    background-color: #0056b3;
+}
+
+/* About Section */
+/*.about-container {
+    padding: 50px 10%;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #f2f6f7;
+    font-family: 'Roboto', sans-serif;
+}
+.about-title {
+    color: #f2f6f7;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.about-subtitle {
+    margin-top: 30px;
+    color: #f3f7f9;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.about-container a {
+    color: #eef0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.about-container a:hover {
+    text-decoration: underline;
+    color: #7FDBFF;
+}
+*/
+
+/* Subtitle Style */
+.about-subtitle {
+    margin-top: 2rem;
+    color: #00e1ff;
+    font-weight: 700;
+    font-size: 1.7rem;
+    text-shadow: 0 0 6px rgba(0, 225, 255, 0.6);
+}
+
+/* Grid Layout */
+.myths-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Myth and Fact Boxes */
+.myth-box, .fact-box {
+    background: linear-gradient(145deg, rgba(10, 10, 10, 0.6), rgba(30, 30, 30, 0.4));
+    padding: 1.2rem;
+    border-left: 4px solid #ff5555;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1.05rem;
+    box-shadow: 0 0 10px rgba(255, 85, 85, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.myth-box:hover, .fact-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 16px rgba(0, 255, 255, 0.3);
+}
+
+/* Fact Box Accent Color */
+.fact-box {
+    border-left: 4px solid #00ffd5;
+    box-shadow: 0 0 10px rgba(0, 255, 213, 0.2);
+}
+
+/* Did You Know List */
+.did-you-know li {
+    margin-bottom: 0.9rem;
+    font-size: 1.05rem;
+    color: #cceeff;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.did-you-know li::before {
+    content: "🔹";
+    position: absolute;
+    left: 0;
+    color: #00ffee;
+}
+
+/* Optional: Add fade-in animation for smooth entry */
+.about-container.fade-in {
+    animation: fadeInSlideUp 0.8s ease-in-out both;
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Small Screen Adjustments */
+@media (max-width: 768px) {
+    .navigation-container {
+        padding: 30px 5%;
+    }
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .welcome-title {
+        font-size: 3rem;
+    }
+    .welcome-subtitle {
+        font-size: 1.4rem;
+    }
+    .card-btn {
+        padding: 8px 18px;
+    }
+}

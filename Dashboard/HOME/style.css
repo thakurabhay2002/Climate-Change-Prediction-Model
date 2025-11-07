@@ -1,0 +1,323 @@
+/* General */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    width: 100%;
+    /*background-color: #0b1120;*/
+    background: linear-gradient(135deg, #0b1120 0%, #0a0a0a 50%, #070131 100%);
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #0b1120;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #00bfff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Stars Canvas */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(11, 17, 32, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.navbar .nav-link {
+    font-weight: bold;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    background: transparent;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-content {
+    background: rgba(0, 47, 75, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    color: white;
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+    border: 1px solid rgba(0, 191, 255, 0.4);
+    max-width: 850px;
+    text-align: center;
+}
+
+/* Optional breathing animation (disabled by default) */
+/*
+@keyframes softPulse {
+    0% { box-shadow: 0 0 12px rgba(0, 191, 255, 0.3); }
+    50% { box-shadow: 0 0 18px rgba(0, 191, 255, 0.5); }
+    100% { box-shadow: 0 0 12px rgba(0, 191, 255, 0.3); }
+}
+.hero-content {
+    animation: softPulse 8s infinite alternate;
+}
+*/
+
+/* Glowing Text (optional) */
+.text-glow {
+    text-shadow: 0 0 8px rgba(0, 183, 255, 0.4);
+}
+
+/* Glowing Button */
+.glowing-btn {
+    background: linear-gradient(90deg, #00bfff, #1e90ff);
+    border: none;
+    box-shadow: 0 0 15px #00bfff;
+    color: white;
+    transition: 0.3s;
+    padding: 12px 100px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    width: 250px; /* Set fixed width for same size */
+    height: 50px; /* Set fixed height for same size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glowing-btn:hover {
+    background: linear-gradient(90deg, #1e90ff, #00bfff);
+    box-shadow: 0 0 25px #00bfff, 0 0 40px #00bfff;
+    transform: translateY(-2px);
+}
+
+/* Button Container with spacing */
+.btn-container {
+    display: flex;
+    gap: 20px;  /* Space between buttons */
+    justify-content: center; /* Center the buttons horizontally */
+}
+
+
+/* About and Article Sections */
+.section {
+    padding: 100px 0;
+}
+
+.bg-dark {
+    background-color: #0b1120 !important;
+}
+
+.bg-secondary {
+    background-color: #1b2735 !important;
+}
+
+/* Article Cards */
+.card {
+    background-color: rgba(0, 47, 75, 0.85);
+    color: white;
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 191, 255, 0.5);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* live climate section*/
+#live-dashboard .glass-card {
+    background: rgba(0, 47, 75, 0.75);
+    border: 1px solid rgba(0, 191, 255, 0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+    border-radius: 15px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#live-climate .glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+}
+
+/* Weather Card */
+.glass-card {
+    background-color: rgba(0, 47, 75, 0.7); /* Dark transparent background */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3); /* Soft glow effect */
+}
+
+.glass-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.glass-card .display-5 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.glass-card img {
+    margin-right: 15px;
+}
+
+.glass-card p {
+    margin-bottom: 5px;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 15px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .glowing-btn {
+        font-size: 1rem;
+        padding: 10px 24px;
+    }
+}
+
+
+/* Live Dashboard Section */
+#live-dashboard {
+    background-color: #111;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  #live-dashboard .glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transition: transform 0.3s ease;
+    height: 100%;
+  }
+  
+  #live-dashboard .glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  
+  #live-dashboard h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  #live-dashboard p {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+  
+  #live-dashboard .display-6 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  #weather-icon {
+    margin: 0 auto 10px;
+    display: block;
+  }
+  
+
+
+
+/* Footer */
+footer {
+    background-color: #0b1120;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    z-index: 99;
+    font-size: 22px;
+    border: none;
+    outline: none;
+    background-color: #00bfff;
+    color: white;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00bfff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #1e90ff;
+    transform: scale(1.1);
+}
+
+
+#animation
+.fade-slide-out {
+    animation: fadeSlideOut 0.8s ease forwards;
+}
+
+@keyframes fadeSlideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
+
