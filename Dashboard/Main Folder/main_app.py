@@ -17,7 +17,7 @@ apps = {
     "Other Factors Forecast Dashboard": "http://127.0.0.1:8050",
     "Global Warming Forecast Dashboard ": "http://127.0.0.1:8051",
     "Sea Level Forecasting Dashboard": "http://127.0.0.1:8052",
-    "City-wise Temperature Forecast Dashboard": "http://127.0.0.1:8050",
+    "City-wise Temperature Forecast Dashboard": "http://127.0.0.1:8053",
 }
 
 # --- Navbar ---
@@ -27,7 +27,7 @@ def get_navbar(pathname):
 
     return dbc.NavbarSimple(
         children=[
-            dbc.NavItem(dbc.NavLink("Home", href="http://127.0.0.1:8060/Climate_Change_Prediction-main/HOME/home.html", className=is_active("/"))),
+            dbc.NavItem(dbc.NavLink("Home", href="http://127.0.0.1:5500/Dashboard/HOME/home.html", className=is_active("/"))),
             dbc.NavItem(dbc.NavLink("Dashboards", href="/navigation", className=is_active("/navigation"))),
             dbc.NavItem(dbc.NavLink("About", href="/about", className=is_active("/about"))),
         ],

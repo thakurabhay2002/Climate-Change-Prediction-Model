@@ -95,7 +95,7 @@ navbar = dbc.Navbar(
                 dbc.Col(
                     dbc.Nav(
                         [
-                            dbc.NavItem(dbc.NavLink("Home", href="http://127.0.0.1:5500/Climate_Change_Prediction-main/HOME/home.html#hero")),
+                            dbc.NavItem(dbc.NavLink("Home", href="http://127.0.0.1:5500/Dashboard/HOME/home.html")),
                             dbc.NavItem(dbc.NavLink("Dashboards", href="http://127.0.0.1:8060/navigation")),
                             dbc.NavItem(dbc.NavLink("About", href="http://127.0.0.1:8060/about")),
                         ],

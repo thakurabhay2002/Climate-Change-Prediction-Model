@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Temperature Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            color: #ffffff;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        h2 {
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            background-color: #2c2c2c;
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #aaa;
+        }
+
+        .btn-predict {
+            background: linear-gradient(90deg, #00bfff, #1e90ff);
+            border: none;
+            font-weight: 600;
+            color: white;
+            border-radius: 30px;
+            padding: 10px;
+            box-shadow: 0 0 10px #00bfff;
+            transition: 0.3s;
+        }
+
+        .btn-predict:hover {
+            box-shadow: 0 0 25px #00bfff;
+        }
+
+        .text-danger {
+            margin-top: 10px;
+            color: #ff6b6b;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+
+    <!-- Brand on the left -->
+    <a class="navbar-brand" href="/">🌎 ClimateXplorer</a>
+
+    <!-- Toggler for mobile view -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links on the right -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5500/Climate_Change_Prediction-main/HOME/home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5006/">Dashboards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="text-center">🌍 Global Temperature Prediction</h2>
+    <form method="POST" action="/G_Predict">
+        <div class="form-group">
+            <label for="year">Enter a Year (e.g., 2035):</label>
+            <input type="text" name="year" class="form-control" placeholder="2035" required>
+        </div>
+        {% if msg_s %}
+            <div class="text-danger text-center">{{ msg_s }}</div>
+        {% elif msg %}
+            <div class="text-danger text-center">{{ msg }}</div>
+        {% endif %}
+        <button type="submit" class="btn btn-predict btn-block mt-4">🚀 Predict</button>
+    </form>
+</div>
+</body>
+</html>
