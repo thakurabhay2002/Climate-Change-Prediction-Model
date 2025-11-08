@@ -111,7 +111,7 @@ def co_prediction():
             return render_template('CO_Prediction.html', msg_s=msg_s)
         
         # Read the CO dataset and preprocess
-        dataset = pd.read_csv('/Users/vyadav/Downloads/co.csv', parse_dates=['Date Local'])
+        dataset = pd.read_csv('C:/Users/Dell/Desktop/project/Dashboard/Dataset/co.csv', parse_dates=['Date Local'])
         date = dataset["Date Local"]
         means = dataset.iloc[:, 2].values
 
@@ -186,7 +186,7 @@ def no2_prediction():
             return render_template('NO2_Prediction.html', msg_s=msg_s)
 
         # Read the NO2 dataset and preprocess
-        dataset = pd.read_csv('/Users/vyadav/Downloads/no2.csv', parse_dates=['Date Local'])
+        dataset = pd.read_csv('C:/Users/Dell/Desktop/project/Dashboard/Dataset/no2.csv', parse_dates=['Date Local'])
         date = dataset["Date Local"]
         means = dataset.iloc[:, 2].values
 
@@ -267,7 +267,7 @@ def so2_prediction():
             return render_template('SO2_prediction.html', msg_s=msg_s)
 
         # Read the SO2 dataset and preprocess
-        dataset = pd.read_csv('/Users/vyadav/Downloads/so2.csv', parse_dates=['Date Local'])
+        dataset = pd.read_csv('C:/Users/Dell/Desktop/project/Dashboard/Dataset/so2.csv', parse_dates=['Date Local'])
         date = dataset["Date Local"]
         means = dataset.iloc[:, 2].values
 

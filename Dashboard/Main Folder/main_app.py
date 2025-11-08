@@ -15,7 +15,7 @@ server = app.server
 # Define app URLs (adjust ports if needed)
 apps = {
     "Other Factors Forecast Dashboard": "http://127.0.0.1:8050",
-    "Global Warming Forecast Dashboard ": "http://127.0.0.1:8051",
+    "Global Warming Forecast Dashboard ": "http://127.0.0.1:8051/",
     "Sea Level Forecasting Dashboard": "http://127.0.0.1:8052",
     "City-wise Temperature Forecast Dashboard": "http://127.0.0.1:8053",
 }

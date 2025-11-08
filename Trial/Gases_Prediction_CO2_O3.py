@@ -64,7 +64,7 @@ def CO2_Prediction(valueco2):
 
 
 def O3_Prediction(valueo3):
-    dataset = pd.read_csv('/Users/vyadav/Downloads/o3.csv', parse_dates=['Date Local'])
+    dataset = pd.read_csv('C:/Users/Dell/Desktop/project/Dashboard/Dataset/o3.csv', parse_dates=['Date Local'])
     date = dataset["Date Local"]
     means = dataset.iloc[:, 2].values
 
